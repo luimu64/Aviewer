@@ -24,18 +24,23 @@ class anime:
         eps = soup.find("ul", id="episode_page")
         self.episodes = (eps.li.a["ep_start"], eps.li.a["ep_end"])
 
-    def watch(self, link, ep):
+    def watchinglink(self, link, ep):
         link = link.replace("category/", "")
         link = link + "-episode-" + ep
         source = rq.get(link).text
-        self.streamlink = "https:" + re.search(r'"//vidstreaming.io/streaming.php\?\S+"', source).group(0).replace('"', "")
+        self.adlink = "https:" + re.search(r'"//vidstreaming.io/streaming.php\?\S+"', source).group(0).replace('"', "")
+        source = rq.get(self.adlink).text
+        self.link = re.search(r"https://hls..xx.cdnfile.info.*,", source).group(0).split("'")
+        self.link = self.link[0]
+
 
 #from animescripti import anime
 
 #x = anime()
 #x.search("jojo")
 #x.getepisodes("https://www18.gogoanime.io/category/jojo-no-kimyou-na-bouken-part-3-stardust-crusaders-2nd-season-dub")
-#x.watch(x.results[0][1], "4")
-#print(x.streamlink)
-#print(x.result)
+#x.watchinglink(x.results[0][1], "4")
+#print(x.results)
 #print(x.episodes)
+#print(x.link)
+#print(x.adlink)

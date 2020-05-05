@@ -7,10 +7,11 @@
     <link href="https://vjs.zencdn.net/7.7.5/video-js.css" rel="stylesheet">
     <script type="text/javascript" src="/eel.js"></script>
     <script>
+        eel.expose(search_js);
         function search_js() {
             let keyword = document.getElementById('search').value;
             let linklist = eel.search_py(keyword);
-            console.log(linklist)
+            console.log(linklist);
         }
     </script>
 </head>
