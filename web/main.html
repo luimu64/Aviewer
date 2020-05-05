@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://vjs.zencdn.net/7.7.5/video-js.css" rel="stylesheet">
+    <script type="text/javascript" src="/eel.js"></script>
+    <script>
+        function search_js() {
+            let keyword = document.getElementById('search').value;
+            let linklist = eel.search_py(keyword);
+            console.log(linklist)
+        }
+    </script>
+</head>
+<body>
+<div id="center">
+<input type="text" id="search" placeholder="Search something"> 
+<button onclick="search_js()">>></button><br>
+<!--linkit-->
+<br><input type="text" id="link" placeholder="Link">
+<button>>></button><br>
+<input type="text" id="episode" placeholder="Episode number">
+<button>>></button><br><br>
+<video width="400" height="227" class="video-js vjs-default-skin" controls data-setup='{}' preload="auto">
+    <source src="https://hls10xx.cdnfile.info/videos/hls/mBXhI4Ax0Uz2idYojAiK7Q/1588692835/125062/b6068f1e6ceca00bac35377aabafdd62/dub.14.m3u8" type="application/x-mpegURL">
+</video>
+<script src="https://vjs.zencdn.net/7.7.5/video.js"></script>
+</div>
+</body>
+</html>
