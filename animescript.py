@@ -4,8 +4,24 @@ from bs4 import BeautifulSoup as bs
 
 
 class anime:
+    class helpers:
+        def hasNumbers(self, inputString):
+            return any(char.isdigit() for char in inputString)
     def __init__(self):
         pass
+
+    def getepisodes(self, link):
+        source = rq.get(link).text
+        soup = bs(source, "lxml")
+        eps = soup.find("ul", id="episode_page")
+        listofeps = []
+        del listofeps[:]
+        for i in eps.descendants:
+            if i == "\n":
+                pass
+            else:
+                listofeps.append(i.string)
+        self.episodes = listofeps[-1].split("-")[1]
 
     def search(self, keyword):
         source = rq.get("https://www18.gogoanime.io//search.html?keyword=" + keyword).text
@@ -17,12 +33,6 @@ class anime:
             title = i.a["title"]
             link = "https://www18.gogoanime.io" + i.a["href"]
             self.results.append((title, link))
-
-    def getepisodes(self, link):
-        source = rq.get(link).text
-        soup = bs(source, "lxml")
-        eps = soup.find("ul", id="episode_page")
-        self.episodes = (eps.li.a["ep_start"], eps.li.a["ep_end"])
 
     def watchinglink(self, link, ep):
         link = link.replace("category/", "")
@@ -38,7 +48,7 @@ class anime:
 
 #x = anime()
 #x.search("jojo")
-#x.getepisodes("https://www18.gogoanime.io/category/jojo-no-kimyou-na-bouken-part-3-stardust-crusaders-2nd-season-dub")
+#x.getepisodes("https://www18.gogoanime.io/category/one-piece")
 #x.watchinglink(x.results[0][1], "4")
 #print(x.results)
 #print(x.episodes)
