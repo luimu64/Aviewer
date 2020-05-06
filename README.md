@@ -10,4 +10,4 @@ Following dependecies are required in order to run from source:
  - requests
 
 Both scripts need to be in the same folder,
-and the script has to be ran from the projects root.
+and the script has to be ran from the project's root.

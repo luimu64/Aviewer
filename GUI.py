@@ -1,5 +1,3 @@
-import threading
-
 import mpv
 import PySimpleGUI as sg
 
@@ -10,7 +8,7 @@ from animescript import anime
 x = anime()
 
 
-sg.theme('Black')
+sg.theme('DarkRed')
 
 layout = [  [sg.InputText('Search something...'), sg.Button('🔍'), sg.InputText('Ordinal...', size=(15, 0)), sg.Button('⇅'), sg.InputText('Episode number...', size=(16, 0)), sg.Button('ᐅ')],
             [sg.Output(size=(98,20))]]
