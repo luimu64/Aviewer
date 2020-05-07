@@ -1,6 +1,6 @@
 # Aviewer
 
-Simple anime viewing application made with python
+Simple gogoanime scraper made with python
 
 Following dependecies are required in order to run from source:
 
