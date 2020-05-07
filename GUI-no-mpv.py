@@ -9,7 +9,7 @@ x = anime()
 
 sg.theme('DarkRed')
 
-layout = [  [sg.InputText('Search something...'), sg.Button('🔍'), sg.InputText('Ordinal...', size=(15, 0)), sg.Button('⇅'), sg.InputText('Episode number...', size=(16, 0)), sg.Button('ᐅ')],
+layout = [  [sg.InputText('Search something...'), sg.Button('search'), sg.InputText('Ordinal...', size=(15, 0)), sg.Button('refresh'), sg.InputText('Episode number...', size=(16, 0)), sg.Button('play and get link')],
             [sg.Output(size=(98,20))]]
 
 mainw = sg.Window('Aviewer', layout)
@@ -18,14 +18,15 @@ while True:
     event, values = mainw.read()
     if event in (None, 'Cancel'):
         break
-    if event in (None, 'ᐅ'):
+    if event in (None, 'play and get link'):
         if hasattr(x, "results") == False:
                 print("You have to search before you can get episodes.\n")
         else:
             x.watchinglink(x.results[int(values[1])][1], values[2])
             print(x.link)
             print(x.adlink)
-    if event in (None, '⇅'):
+            mainw.refresh()
+    if event in (None, 'refresh'):
         number = values[1].replace(".", "")
         if anime.helpers.hasNumbers(x, number):
             number = int(number)
@@ -39,7 +40,7 @@ while True:
         else:
             print("Give a number or ordinal.\n")
 
-    if event in (None, '🔍'):
+    if event in (None, 'search'):
         x.search(values[0])
         j = 0
         print("Search resulted:")
