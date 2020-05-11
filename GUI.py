@@ -1,9 +1,7 @@
-import mpv
+from subprocess import run
 import PySimpleGUI as sg
 
 from animescript import anime
-
-
 
 x = anime()
 
@@ -24,13 +22,16 @@ while True:
                 print("You have to search before you can get episodes.\n")
         else:
             x.watchinglink(x.results[int(values[1])][1], values[2])
-            print(x.link)
             print(x.adlink)
-            mainw.refresh()
-            player = mpv.MPV(input_default_bindings=True, input_vo_keyboard=True, osc=True)
-            player.play(x.link)
-            player.wait_for_playback()
-            del player
+            if x.cleanlinks:
+                print(x.cleanlinks)
+                mainw.refresh()
+                run([
+                    "mpv",
+                    x.cleanlinks[0]
+                ])
+            else:
+                print("Sorry, I couldn't find the source links :(")
     if event in (None, 'refresh'):
         number = values[1].replace(".", "")
         if anime.helpers.hasNumbers(x, number):

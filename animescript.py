@@ -40,17 +40,21 @@ class anime:
         source = rq.get(link).text
         self.adlink = "https:" + re.search(r'"//vidstreaming.io/streaming.php\?\S+"', source).group(0).replace('"', "")
         source = rq.get(self.adlink).text
-        self.link = re.search(r"https://hls..xx.cdnfile.info.*,", source).group(0).split("'")
-        self.link = self.link[0]
+        links = re.findall(r"sources:\[{file:\s\S+", source)
+        self.cleanlinks = []
+        for i in links:
+            link = i.split("'")
+            self.cleanlinks.append(link[1])
+
 
 
 #from animescripti import anime
 
 #x = anime()
 #x.search("jojo")
-#x.getepisodes("https://www18.gogoanime.io/category/one-piece")
-#x.watchinglink(x.results[0][1], "4")
+#x.getepisodes(x.results[0][1])
+#x.watchinglink(x.results[0][1], "1")
 #print(x.results)
 #print(x.episodes)
-#print(x.link)
+#print(x.cleanlinks)
 #print(x.adlink)
