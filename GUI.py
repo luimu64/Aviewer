@@ -8,7 +8,7 @@ x = anime()
 
 sg.theme('Topanga')
 
-layout = [  [sg.InputText("Search something", key="search"), sg.Button('search'), sg.InputText('Show number', size=(15, 0), key="shownum"), sg.Button('refresh'), sg.InputText('Episode number', size=(16, 0), key="epnum"), sg.Button('play and get links')],
+layout = [  [sg.InputText("Search something", key="search"), sg.Button('search'), sg.InputText("Show's number", size=(15, 0), key="shownum"), sg.Button('refresh'), sg.InputText('Episode number', size=(16, 0), key="epnum"), sg.Button('play and get links')],
             [sg.Output(size=(115,20))]]
 
 mainw = sg.Window('Aviewer', layout, use_default_focus=False, finalize=True)
@@ -76,11 +76,11 @@ while True:
         if values["search"] == "":
             mainw["search"].update("Search something")
     elif event in (None, "shownumin"):
-        if values["shownum"] == "Show number":
+        if values["shownum"] == "Show's number":
             mainw["shownum"].update("")
     elif event in (None, "shownumout"):
         if values["shownum"] == "":
-            mainw["shownum"].update("Show number")
+            mainw["shownum"].update("Show's number")
     elif event in (None, "epnumin"):
         if values["epnum"] == "Episode number":
             mainw["epnum"].update("")
