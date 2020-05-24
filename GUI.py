@@ -47,7 +47,6 @@ while True:
         number = values["shownum"].replace(".", "")
         if anime.helpers.hasNumbers(x, number):
             number = int(number) - 1
-            print(number)
             if hasattr(x, "results") == False:
                 print("You have to search before you can get episodes.\n")
             elif number > len(x.results)-1:
