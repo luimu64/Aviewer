@@ -6,7 +6,6 @@ Following dependecies are required in order to run from source:
 
  - pysimplegui
  - beautifulsoup4
- - python-mpv
  - requests
  - lxml
 
