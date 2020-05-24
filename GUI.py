@@ -30,7 +30,7 @@ while True:
         if hasattr(x, "results") == False:
                 print("You have to search before you can get episodes.\n")
         else:
-            x.watchinglink(x.results[int(values["shownum"])][1], values["epnum"])
+            x.watchinglink(x.results[int(values["shownum"]) - 1][1], values["epnum"])
             print(x.adlink)
             if x.cleanlinks:
                 print(x.cleanlinks)
@@ -46,7 +46,8 @@ while True:
     if event in (None, 'refresh'):
         number = values["shownum"].replace(".", "")
         if anime.helpers.hasNumbers(x, number):
-            number = int(number)
+            number = int(number) - 1
+            print(number)
             if hasattr(x, "results") == False:
                 print("You have to search before you can get episodes.\n")
             elif number > len(x.results)-1:
@@ -59,7 +60,7 @@ while True:
 
     if event in (None, 'search0'):
         x.search(values["search"])
-        j = 0
+        j = 1
         print("Search resulted:")
         for i in x.results:
             print(str(j) + ". " + i[0])
