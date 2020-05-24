@@ -6,7 +6,7 @@ from animescript import anime
 x = anime()
 
 
-sg.theme('Topanga')
+sg.theme('DarkGrey4')
 
 layout = [  [sg.InputText("Search something", key="search"), sg.Button('search'), sg.InputText("Show's number", size=(15, 0), key="shownum"), sg.Button('refresh'), sg.InputText('Episode number', size=(16, 0), key="epnum"), sg.Button('play and get links')],
             [sg.Output(size=(115,20))]]
@@ -29,7 +29,7 @@ while True:
     if event in (None, 'play and get links'):
         if hasattr(x, "results") == False:
                 print("You have to search before you can get episodes.\n")
-        else:
+        elif values["shownum"] != "Show's number":
             x.watchinglink(x.results[int(values["shownum"]) - 1][1], values["epnum"])
             print(x.adlink)
             if x.cleanlinks:
@@ -42,6 +42,8 @@ while True:
                 )
             else:
                 print("Sorry, I couldn't find the source links :(")
+        else:
+            print("Please fill the previous fields.")
 
     if event in (None, 'refresh'):
         number = values["shownum"].replace(".", "")
