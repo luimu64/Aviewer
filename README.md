@@ -1,6 +1,6 @@
 # Aviewer
 
-Simple GUI for watching anime from gogoanime with mpv made with python.
+Simple GUI for watching anime from gogoanime with mpv.
 
 ## Installation/Running
 ### Linux
