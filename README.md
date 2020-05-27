@@ -1,7 +1,23 @@
 # Aviewer
 
-Simple gogoanime scraper made with python
+Simple GUI for watching anime from gogoanime with mpv made with python.
 
+## Installation/Running
+### Linux
+
+You need to have mpv installed and usable in your $PATH.
+After mpv is installed, run following commands in the folder where you placed the binary:
+`chmod +x <name of the binary>`
+`./<name of the binary>`
+
+### Windows 
+
+Mpv comes bundled in the zip, but you can úse your own as long as it's named <b>mpv.exe</b>.
+Run the <b>GUI.exe</b> by double clicking.
+
+## Running from source
+
+If you want to run from source in windows use the psg-win branch.
 Following dependecies are required in order to run from source:
 
  - pysimplegui
