@@ -4,7 +4,7 @@ import _thread
 from animescript import anime
 
 x = anime()
-sg.theme('DarkGrey4')
+sg.theme('DarkGrey7')
 
 def refresh():
     number = values["shownum"].replace(".", "")
@@ -53,7 +53,7 @@ def play():
 
 
 layout = [  [sg.InputText("Search something", key="search"), sg.Button('search'), sg.InputText("Show's number", size=(15, 0), key="shownum"), sg.Button('refresh'), sg.InputText('Episode number', size=(16, 0), key="epnum"), sg.Button('play and get links')],
-            [sg.Output(size=(115,20))]]
+            [sg.Output(size=(115,20), key="output")]]
 
 mainw = sg.Window('Aviewer', layout, use_default_focus=False, finalize=True)
 
@@ -68,7 +68,6 @@ while True:
     event, values = mainw.read()
     if event in (None, 'Cancel'):
         break
-
 
     if event in (None, 'play and get links'):
         _thread.start_new_thread(play, ())
