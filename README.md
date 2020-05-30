@@ -12,7 +12,7 @@ After mpv is installed, run following commands in the folder where you placed th
 
 ### Windows 
 
-Mpv comes bundled in the zip, but you can úse your own as long as it's named <b>mpv.exe</b>.
+Mpv comes bundled in the zip, but you can use your own as long as it's named <b>mpv.exe</b>.
 Run the <b>GUI.exe</b> by double clicking.
 
 ## Running from source
