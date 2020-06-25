@@ -19,7 +19,7 @@ elif sys.argv[1] == "play":
     x.watchinglink(sys.argv[2], sys.argv[3])
     print(x.adlink)
     if x.cleanlinks:
-        print(x.cleanlinks)
+        print(x.cleanlinks[0])
         run ([
             "mpv",
             x.cleanlinks[0]
