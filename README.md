@@ -1,6 +1,14 @@
 # Aviewer
 
-Simple GUI for watching anime from gogoanime with mpv.
+Simple GUI and CLI for watching anime from gogoanime with mpv using simple scraping script.
+
+## CLI usage
+`$ python CLI.py search <your search>`
+`$ python CLI.py episodes <link from search>`
+`$ python CLI.py play <link> <episode>`
+
+Since there is no loading indicator you just need some patience depending on your internet connection. 
+If play command didn't crash or give any kind of errors it's probably working.
 
 ## Installation/Running
 ### Linux
