@@ -6,12 +6,11 @@ from animescript import gogoanime
 x = gogoanime()
 
 if sys.argv[1] == "search":
-    if sys.argv[2] == "gogoanime":
-        x.search(sys.argv[3])
-        j = 1
-        for i in x.results:
-                print(i[0] + "\n" + i[1])
-                j += 1
+    x.search(sys.argv[2])
+    j = 1
+    for i in x.results:
+            print(i[0] + "\n" + i[1])
+            j += 1
 
 elif sys.argv[1] == "episodes":
     x.getepisodes(sys.argv[2])
