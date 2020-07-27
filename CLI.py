@@ -1,15 +1,17 @@
+#!/bin/python
 import sys
 from subprocess import run
-from animescript import anime
+from animescript import gogoanime
 
-x = anime()
+x = gogoanime()
 
 if sys.argv[1] == "search":
-    x.search(sys.argv[2])
-    j = 1
-    for i in x.results:
-            print(i[0] + "\n" + i[1])
-            j += 1
+    if sys.argv[2] == "gogoanime":
+        x.search(sys.argv[3])
+        j = 1
+        for i in x.results:
+                print(i[0] + "\n" + i[1])
+                j += 1
 
 elif sys.argv[1] == "episodes":
     x.getepisodes(sys.argv[2])
@@ -19,7 +21,9 @@ elif sys.argv[1] == "play":
     x.watchinglink(sys.argv[2], sys.argv[3])
     print(x.adlink)
     if x.cleanlinks:
-        print(x.cleanlinks[0])
+        #remove duplicates
+        x.cleanlinks = list(dict.fromkeys(x.cleanlinks))
+        print(x.cleanlinks)
         run ([
             "mpv",
             x.cleanlinks[0]

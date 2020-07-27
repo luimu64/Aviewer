@@ -1,14 +1,14 @@
 from subprocess import run
 import PySimpleGUI as sg
 import _thread
-from animescript import anime
+from animescript import gogoanime, helpers
 
-x = anime()
+x = gogoanime()
 sg.theme('DarkGrey7')
 
 def refresh():
     number = values["shownum"].replace(".", "")
-    if anime.helpers.hasNumbers(x, number):
+    if helpers.hasNumbers(x, number):
         number = int(number) - 1
         if hasattr(x, "results") == False:
             print("You have to search before you can get episodes.\n")
@@ -39,6 +39,8 @@ def play():
         x.watchinglink(x.results[int(values["shownum"]) - 1][1], values["epnum"])
         print(x.adlink)
         if x.cleanlinks:
+            #remove duplicates
+            x.cleanlinks = list(dict.fromkeys(x.cleanlinks))
             print(x.cleanlinks)
             mainw.refresh()
             run ([

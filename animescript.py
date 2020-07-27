@@ -3,13 +3,16 @@ import requests as rq
 from bs4 import BeautifulSoup as bs
 
 
-class anime:
-    class helpers:
-        def hasNumbers(self, inputString):
-            return any(char.isdigit() for char in inputString)
+class helpers:
     def __init__(self):
         pass
+    def hasNumbers(self, inputString):
+        return any(char.isdigit() for char in inputString)
 
+
+class gogoanime:
+    def __init__(self):
+        pass
     def getepisodes(self, link):
         source = rq.get(link).text
         soup = bs(source, "lxml")
@@ -39,6 +42,7 @@ class anime:
         link = link + "-episode-" + ep
         source = rq.get(link).text
         self.adlink = "https:" + re.search(r'"//vidstreaming.io/streaming.php\?\S+"', source).group(0).replace('"', "")
+        self.adlink = self.adlink.replace("streaming.php", "loadserver.php")
         source = rq.get(self.adlink).text
         links = re.findall(r"sources:\[{file:\s\S+", source)
         self.cleanlinks = []
