@@ -1,6 +1,6 @@
 # Aviewer
 
-Simple GUI and CLI for watching anime from gogoanime with mpv using simple scraping script.
+Simple GUI and CLI for watching anime using simple scraping script.
 
 ## CLI usage
 `$ python CLI.py search <your search>`  
