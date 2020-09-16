@@ -1,7 +1,8 @@
 # Aviewer
 
 Simple GUI and CLI for watching anime using simple scraping script.
-##Currently not working since gogoanime has changed things and I am too lazy fix this since I just torrent my anime.
+
+## Currently not working since gogoanime has changed things and I am too lazy fix this since I just torrent my anime.
 
 ## CLI usage
 `$ python CLI.py search <your search>`  
